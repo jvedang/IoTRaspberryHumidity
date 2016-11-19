@@ -26,10 +26,15 @@ WORKDIR /usr/src/app
 #COPY package.json package.json
 
 RUN git clone https://github.com/adafruit/Adafruit_Python_DHT.git
+
 WORKDIR /usr/src/app/Adafruit_Python_DHT
-RUN sudo python setup.py install
+# RUN sudo python setup.py install
+CMD ["python", "setup.py install"]
+
 WORKDIR /usr/src/app
+
 RUN git clone https://github.com/jvedang/IoTRaspberryPi.git
+
 WORKDIR /usr/src/app/IoTRaspberryPi
 # RUN su root -c "python server.py"
 # This install npm dependencies on the resin.io build server,
@@ -42,5 +47,5 @@ COPY . ./
 # Enable systemd init system in container
 ENV INITSYSTEM=on
 
-# server.js will run when container starts up on the device
+# server.py will run when container starts up on the device
 CMD ["python", "server.py"]
