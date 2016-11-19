@@ -29,7 +29,7 @@ RUN git clone https://github.com/adafruit/Adafruit_Python_DHT.git
 WORKDIR /usr/src/app/Adafruit_Python_DHT
 RUN sudo python setup.py install
 WORKDIR /usr/src/app
-RUN python server.py
+RUN sudo python server.py
 # This install npm dependencies on the resin.io build server,
 # making sure to clean up the artifacts it creates in order to reduce the image size.
 #RUN JOBS=MAX npm install --production --unsafe-perm && npm cache clean && rm -rf /tmp/*
