@@ -28,9 +28,6 @@ ENV INITSYSTEM=on
 # Defines our working directory in container
 WORKDIR /usr/src/app
 
-
-
-
 RUN git clone https://github.com/jvedang/IoTRaspberryPi.git
 
 WORKDIR /usr/src/app/IoTRaspberryPi
