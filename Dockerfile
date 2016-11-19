@@ -22,20 +22,23 @@ RUN apt-get -q update \
 
 # Defines our working directory in container
 WORKDIR /usr/src/app
+
+
+RUN git clone https://github.com/jvedang/IoTRaspberryPi.git
+
+WORKDIR /usr/src/app/IoTRaspberryPi
+
 # Copies the package.json first for better cache on later pushes
 #COPY package.json package.json
 
 RUN git clone https://github.com/adafruit/Adafruit_Python_DHT.git
 
-WORKDIR /usr/src/app/Adafruit_Python_DHT
-# RUN sudo python setup.py install
-CMD ["python", "setup.py install"]
+WORKDIR /usr/src/app/IoTRaspberryPi/Adafruit_Python_DHT
+RUN sudo python setup.py install
+#CMD ["python", "setup.py install"]
 
-WORKDIR /usr/src/app
+#WORKDIR /usr/src/app
 
-RUN git clone https://github.com/jvedang/IoTRaspberryPi.git
-
-WORKDIR /usr/src/app/IoTRaspberryPi
 # RUN su root -c "python server.py"
 # This install npm dependencies on the resin.io build server,
 # making sure to clean up the artifacts it creates in order to reduce the image size.
@@ -48,4 +51,4 @@ COPY . ./
 ENV INITSYSTEM=on
 
 # server.py will run when container starts up on the device
-CMD ["python", "server.py"]
+CMD ["python", "/usr/src/app/IoTRaspberryPi/server.py"]
