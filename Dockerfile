@@ -27,7 +27,7 @@ WORKDIR /usr/src/app
 
 RUN git clone https://github.com/adafruit/Adafruit_Python_DHT.git
 WORKDIR /usr/src/app/Adafruit_Python_DHT
-RUN python setup.py install
+RUN sudo python setup.py install
 WORKDIR /usr/src/app
 RUN python server.py
 # This install npm dependencies on the resin.io build server,
