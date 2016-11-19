@@ -38,7 +38,7 @@ WORKDIR /usr/src/app/IoTRaspberryPi
 RUN git clone https://github.com/adafruit/Adafruit_Python_DHT.git
 
 WORKDIR /usr/src/app/IoTRaspberryPi/Adafruit_Python_DHT
-RUN sudo python setup.py install --force-pi
+RUN sudo python setup.py install --force-pi2
 #CMD ["python", "setup.py install"]
 
 #WORKDIR /usr/src/app
