@@ -10,9 +10,9 @@ RUN apt-get -q update \
 		curl \
         	git 
 		
-RUN apt-get -y install nodejs
-RUN apt-get install npm
-RUN ln -s /usr/bin/nodejs /usr/bin/node
+#RUN apt-get -y install nodejs
+#RUN apt-get install npm
+#RUN ln -s /usr/bin/nodejs /usr/bin/node
 
 
 # Install Node.js
@@ -26,7 +26,7 @@ WORKDIR /usr/src/app
 #COPY package.json package.json
 
 RUN git clone https://github.com/adafruit/Adafruit_Python_DHT.git
-WxORKDIR /usr/src/app/Adafruit_Python_DHT
+WORKDIR /usr/src/app/Adafruit_Python_DHT
 RUN python setup.py install
 WORKDIR /usr/src/app
 RUN python server.py
