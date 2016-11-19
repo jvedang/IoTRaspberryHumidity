@@ -20,6 +20,10 @@ RUN apt-get -q update \
 #	curl -sL https://deb.nodesource.com/setup_4.x | sudo -E bash - && \
 #	sudo apt-get install -y nodejs
 
+# Enable systemd init system in container
+ENV INITSYSTEM=on
+
+
 # Defines our working directory in container
 WORKDIR /usr/src/app
 
@@ -46,9 +50,6 @@ RUN sudo python setup.py install
 
 # This will copy all files in our root to the working  directory in the container
 COPY . ./
-
-# Enable systemd init system in container
-ENV INITSYSTEM=on
 
 # server.py will run when container starts up on the device
 CMD ["python", "/usr/src/app/IoTRaspberryPi/server.py"]
