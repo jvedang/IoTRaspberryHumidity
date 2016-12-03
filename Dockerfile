@@ -14,7 +14,7 @@ RUN apt-get -q update \
 #RUN apt-get install npm
 #RUN ln -s /usr/bin/nodejs /usr/bin/node
 
-
+RUN pip install paho-mqtt
 # Install Node.js
 #RUN \
 #	curl -sL https://deb.nodesource.com/setup_4.x | sudo -E bash - && \
