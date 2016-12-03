@@ -15,12 +15,12 @@ def read_temp_data():
 
 #publish temperature
 while 1:
-    t=read_temp_data()
-    print "Publishing temperature data"
-    device_uuid=os.environ['RESIN_DEVICE_UUID'];
-    print device_uuid
-    (result,mid)=mqttc.publish("topic/GeneralizedIoT/"+str(device_uuid),t,2)
-    time.sleep(1)
+	t=read_temp_data()
+	print "Publishing temperature data"
+	device_uuid=os.environ['RESIN_DEVICE_UUID'];
+	print device_uuid
+	(result,mid)=mqttc.publish("topic/GeneralizedIoT/"+str(device_uuid),t,2)
+	time.sleep(1)
 
 mqttc.loop_stop()
 mqttc.disconnect()
