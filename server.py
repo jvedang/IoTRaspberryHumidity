@@ -7,6 +7,8 @@ mqttc=mqtt.Client()
 mqttc.connect("iot.eclipse.org",1883,60)
 mqttc.loop_start()
 
+print "inside Temperature app"
+
 #read temperature
 def read_temp_data():
 	humidity, temperature = Adafruit_DHT.read_retry(11, 4)
