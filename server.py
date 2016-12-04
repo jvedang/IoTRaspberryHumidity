@@ -8,6 +8,7 @@ mqttc.connect("iot.eclipse.org",1883,60)
 mqttc.loop_start()
 
 print "inside Humidity sensor"
+print "Inside Humidity sensor"
 
 #read temperature
 def read_temp_data():
