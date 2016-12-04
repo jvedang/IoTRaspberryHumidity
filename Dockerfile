@@ -29,16 +29,16 @@ ENV INITSYSTEM=on
 # Defines our working directory in container
 WORKDIR /usr/src/app
 
-RUN git clone https://github.com/jvedang/IoTRaspberryPi.git
+RUN git clone https://github.com/jvedang/IoTRaspberryHumidity.git
 
-WORKDIR /usr/src/app/IoTRaspberryPi
+WORKDIR /usr/src/app/IoTRaspberryHumidity
 
 # Copies the package.json first for better cache on later pushes
 #COPY package.json package.json
 
 RUN git clone https://github.com/adafruit/Adafruit_Python_DHT.git
 
-WORKDIR /usr/src/app/IoTRaspberryPi/Adafruit_Python_DHT
+WORKDIR /usr/src/app/IoTRaspberryHumidity/Adafruit_Python_DHT
 RUN sudo python setup.py install --force-pi2
 #CMD ["python", "setup.py install"]
 
@@ -53,4 +53,4 @@ RUN sudo python setup.py install --force-pi2
 COPY . ./
 
 # server.py will run when container starts up on the device
-CMD ["python", "/usr/src/app/IoTRaspberryPi/server.py"]
+CMD ["python", "/usr/src/app/IoTRaspberryHumidity/server.py"]
